@@ -13,4 +13,13 @@ public class PatientServices {
 	public void savepatient(Patient p) {
 		pr.save(p);
 	}
+	
+	public void update(int id ,String newname) {
+		Patient p=pr.findById(id).get();
+		p.setName(newname);
+		pr.save(p);
+	}
+	
+
+
 }
