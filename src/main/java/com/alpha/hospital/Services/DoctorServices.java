@@ -14,4 +14,10 @@ public class DoctorServices {
 		dr.save(d);
 	
 }
+	
+	public void update(int id ,String newname) {
+		Doctor d=dr.findById(id).get();
+		d.setName(newname);
+		dr.save(d);
+	}
 }
