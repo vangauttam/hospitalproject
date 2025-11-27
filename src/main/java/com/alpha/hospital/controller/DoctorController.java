@@ -31,6 +31,9 @@ public class DoctorController {
 		ds.deletedoctor(id);
 		
 	}
-	
+	@GetMapping("/findDoctor")
+	public Doctor findDoctor(@RequestParam int id) {
+		return ds.findDoctor(id);
+	}
 
 }

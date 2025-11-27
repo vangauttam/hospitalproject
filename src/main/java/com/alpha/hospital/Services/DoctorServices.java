@@ -24,4 +24,8 @@ public class DoctorServices {
 		// TODO Auto-generated method stub
 		dr.deleteById(id);
 	}
+	 public Doctor findDoctor(int id) {
+			return dr.findById(id).get();
+			
+		}
 }
