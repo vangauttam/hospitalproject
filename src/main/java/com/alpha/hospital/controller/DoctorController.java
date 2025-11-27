@@ -1,6 +1,7 @@
 package com.alpha.hospital.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,7 +26,11 @@ public class DoctorController {
 	public void update(@RequestParam int id, @RequestParam String newname) {
 		ds.update(id, newname);
 	}
-	
+	@DeleteMapping("/deleteDoctor")
+	public void deleteDoctor(@RequestParam int id) {
+		ds.deletedoctor(id);
+		
+	}
 	
 
 }

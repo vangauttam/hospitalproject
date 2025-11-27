@@ -20,4 +20,8 @@ public class DoctorServices {
 		d.setName(newname);
 		dr.save(d);
 	}
+	public void deletedoctor(int id) {
+		// TODO Auto-generated method stub
+		dr.deleteById(id);
+	}
 }

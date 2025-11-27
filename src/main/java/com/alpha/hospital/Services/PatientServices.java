@@ -19,6 +19,9 @@ public class PatientServices {
 		p.setName(newname);
 		pr.save(p);
 	}
+	public void deletepatient(int id) {
+		pr.deleteById(id);
+	}
 	
 
 
