@@ -2,6 +2,8 @@ package com.alpha.hospital.entity;
 
 import java.util.List;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,6 +12,7 @@ import jakarta.persistence.OneToMany;
 public class Doctor {
 	@Id
 	private int id;
+	@Length(min=1,max=10)
 	private String name;
 	private String specialization;
 	@OneToMany(cascade = CascadeType.ALL)
