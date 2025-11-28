@@ -36,5 +36,4 @@ public class ResponseStructure<T> {
 	public void setData(T data) {
 		this.data = data;
 	}
-
 }

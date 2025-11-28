@@ -26,15 +26,35 @@ public class PatientController {
 	
 	
 	@PutMapping("/updatepatient")
-	public void update(@RequestParam int id, @RequestParam String newname) {
-		ps.update(id, newname);
+	public ResponseStructure<Patient> update(@RequestParam int id, @RequestParam String newname) {
+	    return ps.updatePatient(id, newname);
 	}
+	
+
 	@DeleteMapping("/deletePatient")
-	public void deletePatient(@RequestParam int id) {
-		ps.deletePatient(id);
-}
+	public ResponseStructure<String> deletePatient(@RequestParam int id) {
+	    ps.deletePatient(id);
+	    ResponseStructure<String> rs = new ResponseStructure<>();
+	    rs.setStatuscode(200);
+	    rs.setMessage("Patient deleted successfully");
+	    rs.setData("Deleted Patient ID: " + id);
+	    return rs;
+	}
+
+
+
 	@GetMapping("/findPatient")
 	public ResponseStructure<Patient> findPatient(@RequestParam int id) {
 		return ps.findPatient(id);
 	}
+
+	@GetMapping("/findPatientByName")
+	public ResponseStructure<Patient> findPatientByName(@RequestParam String name) {
+	    return ps.findPatientByName(name);
+	}
+
+	
+	
+
+
 }
