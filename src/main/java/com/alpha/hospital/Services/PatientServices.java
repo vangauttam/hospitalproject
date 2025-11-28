@@ -11,6 +11,7 @@ import com.alpha.hospital.Exception.UpdatePatientNotFoundException;
 import com.alpha.hospital.Exception.DeletePatientNotFoundException;
 
 import com.alpha.hospital.Repositery.PatientRepo;
+import com.alpha.hospital.dto.PatientDto;
 import com.alpha.hospital.entity.Patient;
 import com.alpha.hospital.Exception.FindPatientByNameException;
 import com.alpha.hospital.Exception.PatientDeleteConstraintException;
@@ -21,8 +22,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 public class PatientServices {
 	@Autowired
 	private PatientRepo pr;
-	public void savepatient(Patient p) {
-		pr.save(p);
+	public void savepatient(PatientDto pdto) {
+		Patient p=new Patient();
+		p.setName(pdto.getName());
+		p.setAge(pdto.getAge());
+		p.setDisease(pdto.getDisease());
+
+	    Patient saved = pr.save(p);
 	}
 	
 	
